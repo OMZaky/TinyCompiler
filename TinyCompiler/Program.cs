@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO; // Required for reading files
 
 namespace TinyCompiler
 {
@@ -7,23 +8,20 @@ namespace TinyCompiler
     {
         static void Main(string[] args)
         {
-            // The factorial sample program from the project description
-            string sourceCode = @"
-            /* Sample program in Tiny language computes factorial*/
-            int main()
+           
+            // If the user types "dotnet run mycode.tiny", it uses "mycode.tiny".
+            // If they just type "dotnet run", it defaults to "Sample.tiny".
+            string filePath = args.Length > 0 ? args[0] : "Sample.tiny";
+
+            if (!File.Exists(filePath))
             {
-                int x;
-                read x; /*input an integer*/
-                if x > 0 then /*don't compute if x <= 0 */
-                    int fact := 1;
-                    repeat
-                        fact := fact * x;
-                        x := x - 1;
-                    until x = 0
-                    write fact; /*output factorial of x*/
-                end
-                return 0;
-            }";
+                Console.WriteLine($"[Error] Could not find the file: {filePath}");
+                Console.WriteLine("Make sure the file is in the same directory as your project.");
+                return;
+            }
+
+            Console.WriteLine($"Reading source code from: {filePath}...\n");
+            string sourceCode = File.ReadAllText(filePath);
 
             Console.WriteLine("Starting Lexical Analysis...\n");
 
@@ -39,7 +37,6 @@ namespace TinyCompiler
             }
 
             Console.WriteLine("\nTask 1 Lexical Analysis Complete.");
-            Console.ReadLine();
         }
     }
 }

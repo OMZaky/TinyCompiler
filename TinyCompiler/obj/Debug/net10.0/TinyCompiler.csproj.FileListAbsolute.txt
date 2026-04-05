@@ -12,3 +12,4 @@ C:\Users\zakyo\VSCode Project\TinyCompiler\TinyCompiler\obj\Debug\net10.0\refint
 C:\Users\zakyo\VSCode Project\TinyCompiler\TinyCompiler\obj\Debug\net10.0\TinyCompiler.pdb
 C:\Users\zakyo\VSCode Project\TinyCompiler\TinyCompiler\obj\Debug\net10.0\TinyCompiler.genruntimeconfig.cache
 C:\Users\zakyo\VSCode Project\TinyCompiler\TinyCompiler\obj\Debug\net10.0\ref\TinyCompiler.dll
+C:\Users\zakyo\VSCode Project\TinyCompiler\TinyCompiler\obj\Debug\net10.0\TinyCompiler.sourcelink.json
